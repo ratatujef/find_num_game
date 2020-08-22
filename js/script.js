@@ -1,23 +1,20 @@
 const start = document.querySelector(".start"),
-  btn = document.querySelector(".btn"),
+  restart = document.querySelector(".restart"),
   input = document.querySelector(".input"),
-  num = document.querySelector(".number"),
   msg = document.querySelector(".message"),
-  bingo = Math.round(Math.random() * 100),
-  num_area = document.querySelector(".num-area");
-let count = 1;
-
-num.textContent = bingo;
+  numArea = document.querySelector(".num-area");
+let count = 1,
+  bingo = Math.round(Math.random() * 100);
+console.log(bingo);
 
 start.addEventListener("click", function () {
   let round = +input.value;
 
   console.log(count);
   if (round === bingo) {
-    msg.style.color = "#119644";
-    num_area.style.backgroundColor = "#fafd4d";
-    // num_area.textContent = "";
-    num.style.display = "block";
+    msg.classList.add("message_win");
+    numArea.classList.add("num-area_win");
+    numArea.textContent = bingo;
 
     msg.textContent = "You found the number by " + count + " times!!!";
   } else if (round > bingo) {
@@ -27,4 +24,15 @@ start.addEventListener("click", function () {
     msg.textContent = "Too low";
     count += 1;
   }
+});
+
+restart.addEventListener("click", () => {
+  input.value = "";
+  msg.classList.remove("message_win");
+  msg.textContent = 'Insert a number from "1" to "100"';
+  numArea.classList.remove("num-area_win");
+  numArea.textContent = "?";
+  bingo = Math.round(Math.random() * 100);
+  console.log(bingo);
+  count = 1;
 });

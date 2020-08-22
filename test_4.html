@@ -4,20 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игра "Угадай число"</title>
+    <title>"Find the Number" Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="section">
-        <div class="message">insert a number from 1 to 100</div>
+        <header class="header">
+            <div class="message">Insert a number from "1" to "100"</div>
 
-        <div class="num-area">?
-            <div class="number"></div>
-        </div>
-        <input type="text" placeholder="..." class="input">
-        <button class="btn start">Проверить</button>
+            <div class="num-area">?</div>
+        </header>
+        <section class="manual"><input type="number" title="Only numbers can be inserted!" placeholder="..."
+                class="input">
+            <div class="controls">
+                <button class="btn start">Check</button>
+                <button class="btn restart">Restart</button>
+            </div>
+        </section>
 
     </div>
     <script src="js/script.js">
